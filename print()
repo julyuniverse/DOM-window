@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script>
+  function print_start(){
+    var inbody = document.body.innerHTML; //전체 바디 영역 선택
+    window.onbeforeprint = function(){ //프린트 하기전 특정 영역 선택
+      document.body.innerHTML = document.getElementById('print').innerHTML;
+      colsole.log(inbody);
+    }
+    window.onafterprint = function(){ //프린트 이후 전체 영역 선택
+      document.body.innerHTML = inbody;
+    }
+    window.print(); //프린트함수 실행 전 onbeforeprint로 출력 및 취소 이후 다시 전체 바디 영역으로 전환됨
+  }
+  </script>
+  <body>
+    <div id="print">
+      print
+    </div>
+    <div>
+      <p>print2</p>
+    </div>
+    <div>
+      <p>print3</p>
+    </div>
+    <button type="button" onclick="print_start();">print</button>
+  </body>
+</html>
