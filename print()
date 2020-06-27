@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <title></title>
   </head>
+  <style>
+    @page{
+      size:A4;
+      // 가로 인쇄시 size: A4 landscape;
+      margin:0;
+    }
+  </style>
   <script>
   function print_start(){
     var inbody = document.body.innerHTML; //전체 바디 영역 선택
@@ -17,10 +24,13 @@
     window.print(); //프린트함수 실행 전 onbeforeprint로 출력 및 취소 이후 다시 전체 바디 영역으로 전환됨
   }
   </script>
+  
   <body>
+    
     <div id="print">
       print
     </div>
+    
     <div>
       <p>print2</p>
     </div>
